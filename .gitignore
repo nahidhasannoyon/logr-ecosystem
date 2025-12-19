@@ -1,0 +1,4 @@
+.dart_tool/
+.idea/
+pubspec.lock
+melos_logr_workspace.iml

@@ -1,0 +1,26 @@
+include: package:lints/recommended.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/build/**"
+
+linter:
+  rules:
+    # API hygiene
+    public_member_api_docs: true
+    library_private_types_in_public_api: false
+
+    # Style
+    prefer_const_constructors: true
+    prefer_final_locals: true
+    avoid_print: true
+
+    # Safety
+    avoid_dynamic_calls: true
+    depend_on_referenced_packages: false

@@ -1,0 +1,40 @@
+name: logr_ecosystem
+version: 0.0.0
+
+packages:
+  - packages/**
+
+command:
+  bootstrap:
+    hooks:
+      post: |
+        dart pub global activate melos
+
+scripts:
+  test:
+    description: Run tests for all packages
+    run: melos exec -- dart test
+    concurrency: 4
+
+  analyze:
+    description: Analyze all packages
+    run: melos exec -- dart analyze --fatal-infos
+    concurrency: 4
+
+  format:
+    run: melos exec -- dart format . --set-exit-if-changed
+
+  get:
+    description: Get dependencies for all packages
+    run: melos exec -- dart pub get
+
+  version:
+    description: Version all packages
+    run: melos version
+
+  clean:
+    description: Clean all packages
+    run: melos exec -- dart pub cache clean
+
+publish:
+  workspaceChangelog: true
