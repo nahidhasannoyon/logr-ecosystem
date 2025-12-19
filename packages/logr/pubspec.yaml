@@ -1,0 +1,27 @@
+name: logr
+version: 0.1.0
+description: Pure Dart logging core for the LogR ecosystem.
+homepage: https://github.com/your-org/logr-ecosystem
+repository: https://github.com/your-org/logr-ecosystem
+issue_tracker: https://github.com/your-org/logr-ecosystem/issues
+documentation: https://pub.dev/documentation/logr/latest/
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  meta: ^1.17.0
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.28.0
+  coverage: ^1.15.0
+
+topics:
+  - logging
+  - log
+  - debugging
+  - monitoring
+  - logger
+  - dart
+  - flutter
