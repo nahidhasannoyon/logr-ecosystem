@@ -1,16 +1,16 @@
-import 'package:logr/src/logr_base.dart';
+import 'package:logr/logr.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('A group of tests', () {
-    final awesome = Awesome();
+  test('LogR basic functionality', () {
+    LogR.init();
+    expect(LogR.instance, isNotNull);
 
-    setUp(() {
-      // Additional setup goes here.
-    });
+    // Test basic logging
+    log.info('Test message');
 
-    test('First Test', () {
-      expect(awesome.isAwesome, isTrue);
-    });
+    // Verify it was logged
+    final buffered = LogR.instance.getBufferedLogs();
+    expect(buffered.isNotEmpty, isTrue);
   });
 }

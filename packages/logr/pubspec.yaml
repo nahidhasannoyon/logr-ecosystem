@@ -1,16 +1,20 @@
 name: logr
 version: 0.1.0
-description: Pure Dart logging core for the LogR ecosystem.
-homepage: https://github.com/your-org/logr-ecosystem
-repository: https://github.com/your-org/logr-ecosystem
-issue_tracker: https://github.com/your-org/logr-ecosystem/issues
+description: >
+  Pure Dart logging core providing stable primitives for the LogR ecosystem.
+  Includes support for multiple log levels, formatters, outputs, and integrations.
+homepage: https://github.com/Flutter-Craft/logr-ecosystem
+repository: https://github.com/Flutter-Craft/logr-ecosystem
+issue_tracker: https://github.com/Flutter-Craft/logr-ecosystem/issues
 documentation: https://pub.dev/documentation/logr/latest/
+publisher: Flutter Craft
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   meta: ^1.17.0
+  mockito: ^5.6.1
 
 dev_dependencies:
   lints: ^6.0.0
@@ -25,3 +29,12 @@ topics:
   - logger
   - dart
   - flutter
+
+# Publishing configuration
+publish_to: https://pub.dev
+
+# Screenshots for pub.dev
+screenshots:
+  - description: "Log overlay UI"
+    image: https://github.com/Flutter-Craft/logr-ecosystem/raw/main/docs/images/overlay.png
+    sizes: [540, 720, 1080]

@@ -18,9 +18,9 @@ cat > pubspec.yaml << EOF
 name: $PACKAGE_NAME
 version: 0.1.0
 description: $DESCRIPTION
-homepage: https://github.com/your-org/logr-ecosystem
-repository: https://github.com/your-org/logr-ecosystem
-issue_tracker: https://github.com/your-org/logr-ecosystem/issues
+homepage: https://github.com/Flutter-Craft/logr-ecosystem
+repository: https://github.com/Flutter-Craft/logr-ecosystem
+issue_tracker: https://github.com/Flutter-Craft/logr-ecosystem/issues
 documentation: https://pub.dev/documentation/$PACKAGE_NAME/latest/
 
 environment:

@@ -1,0 +1,31 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Install dependencies
+        run: dart pub global activate melos && melos bootstrap
+
+      - name: Publish packages
+        run: |
+          # For each package, publish
+          for package in packages/*; do
+            cd "$package"
+            dart pub publish -f
+            cd - > /dev/null
+          done
+        env:
+          PUB_DEV_PUBLISH_ACCESS_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_ACCESS_TOKEN }}
+          PUB_DEV_PUBLISH_REFRESH_TOKEN: ${{ secrets.PUB_DEV_PUBLISH_REFRESH_TOKEN }}
+          PUB_DEV_PUBLISH_TOKEN_EXPIRY: ${{ secrets.PUB_DEV_PUBLISH_TOKEN_EXPIRY }}
+          PUB_DEV_PUBLISH_TOKEN_TYPE: ${{ secrets.PUB_DEV_PUBLISH_TOKEN_TYPE }}
