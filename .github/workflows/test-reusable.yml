@@ -1,0 +1,20 @@
+# .github/workflows/test-reusable.yml
+name: Reusable Test Workflow
+
+on:
+  workflow_call:
+    inputs:
+      package_name:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+      - run: dart pub get
+      - run: dart test --coverage=coverage
+      - run: dart pub global activate coverage
+      - run: dart pub global run coverage:format_coverage --packages=.packages -i coverage -o coverage/lcov.info

@@ -1,0 +1,29 @@
+name: Analyze
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dart-lang/setup-dart@v1
+
+      - name: Install dependencies
+        run: dart pub global activate melos && melos bootstrap
+
+      - name: Format check
+        run: melos run format:all -- --set-exit-if-changed
+
+      - name: Lint analysis
+        run: melos run analyze:all
+
+      - name: PANA analysis
+        run: |
+          dart pub global activate pana
+          melos exec -- pana --exit-code-threshold 50

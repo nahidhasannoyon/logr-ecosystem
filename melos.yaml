@@ -1,5 +1,6 @@
 name: logr_ecosystem
 version: 0.0.0
+repository: https://github.com/Flutter-Craft/logr-ecosystem
 
 packages:
   - packages/**
